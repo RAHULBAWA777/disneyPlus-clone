@@ -2,6 +2,7 @@ import './App.css';
 import Login from "./components/Login";
 import Header from "./components/Header";
 import Home from './components/Home';
+import Detail from './components/Detail';
 import {
   BrowserRouter,
   Routes,
@@ -20,6 +21,9 @@ function App() {
         </Routes>
         <Routes>
           <Route exact path="/home" element={<Home/>}/>
+        </Routes>
+        <Routes>
+          <Route exact path="/detail/:id" element={<Detail/>}/>
         </Routes>
       </BrowserRouter>
     </div>

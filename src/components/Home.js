@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import db from "../firebase"
 import db from '../firebase';
-import { doc, onSnapshot, collection, query, where, QuerySnapshot } from "firebase/firestore";
+import { doc, onSnapshot, collection, query } from "firebase/firestore";
 
 import {setMovies} from '../features/movie/movieSlice'
 import {selectUserName} from '../features/user/userSlice'
@@ -26,7 +26,7 @@ const Home = (props) => {
     const q =query(collection(db,"movies"))
     const unsub = onSnapshot(q, (QuerySnapshot)=>{
       QuerySnapshot.docs.map((doc)=>{
-        // console.log(recommends)
+      // console.log(recommends)
         switch(doc.data().type){
           case'recommend':
           recommends=[...recommends,{id:doc.id, ...doc.data()}]
